@@ -53,9 +53,9 @@
                             <a><img class="rounded mx-auto d-block" src="asset/smule_page.PNG" alt="smule_page" width="85%"></a>
                           </div>
                           <div class="col-6">
-                            <p>To get the songs listed on the page in Smule is quite endless. You have to scroll through the page. As you scroll down, the page will give more content until you hit the first song you have ever sung. 
+                            <p>To get the songs listed on the page in Smule is quite an endless process. You have to scroll through the page. As you scroll down, the page will give more content until you hit the first song you have ever sung. 
                               Imagine there's over 1000s of songs on your page and the page shows only 25 at a time...and your internet suddenly crashes☠ <i>You get the idea, right?</i></p>
-                            <p>Now let's say you were really passionate about finding the list of all songs and scrolled through those 100s of pages (FYI: Even I don't do that!), 
+                            <p>Now let's say you were really passionate about finding the list of all the songs and scrolled through those 100s of pages (FYI: Even I don't do that!), 
                               you will probably have to <i>copy + paste</i> the specific item on the page into some sort of a spreadsheet field by field and one by one.
                               You can pay an intern to do this for months. Or just let the code do it for you🤓</p>
                             <p>Yes, I am very obssessed with getting those data! What could be better than using my own singing data to demonstrate my coding skills AND my personal life interest!?</p>
@@ -87,7 +87,7 @@
                               </div>
                             </div>
                         </div>
-                        <p><i>I want to be respectful of my singing buddies' privacy, so I will redact everything that can trace back to them. All those years of working in clinical research and patient's confidentiality sure drilled me good with PII redaction skills</i> 😉</p>
+                        <p><i>I want to be respectful of my singing buddies' privacy, so I will redact everything that can be traced back to them. All those years of working in clinical research and patient's confidentiality sure drilled me good with PII redaction skills</i> 😉</p>
 
                     </div>
                     <!-- EXTRACT/Clean-up -->
@@ -114,7 +114,7 @@
                         </div>
                         <div class="col">
                           <div>
-                            For my own purpose, I am only interested in the following filed:
+                            For my own purpose, I am only interested in the following field:
                             <ul>
                               <li>"title"</li> 
                               <li>"artist" (looks like the song uploader didn't specify artist for this one)</li>
@@ -122,19 +122,24 @@
                               <li>"web_url"</li>
                               <li>"performed_by (not shown here)"</li>
                             </ul>
-                            <p>I actually created a project on my GitHub that is dedicated for extracting data [and transforming too].</p>
+
+                            <p>I actually created a project on my GitHub that is dedicated for extracting data [and transforming too]. The code I share actually gives you 
+                              the information on how many songs have the two people sung together. For
+                              the demo on this page, I am just looking up my own account information.
+                            </p>
                             <button type="button" class="btn btn-outline-warning"><a href="https://github.com/ckunakom/smule-song-list" target="_blank">Data Extraction Code!</a></button>
                             <p></p>
-                            <p><i>I am intentionally redacting more than just the values, getting a bit paranoid</i> 😅</p>
+                            <p><i>I am redacting more than just the values, getting a bit paranoid</i> 😅</p>
                             <p></p>
                           </div>
                         </div>
                       </div>
                       <p><h5 class='text-secondary'><strong>Multiple Issues...</strong></h5> 
                       <p>Unfortunately, the code that I shared for Data Extraction does not always work on the first go. I was able to run the whole notebook in one-go
-                        one day, the 2nd loop got an error on another. Also, each time I ran the code, I will have to wait at least 30 minutes before I ran the same <i>request</i> code and I would not be able to have access to Smule page for similar amount
-                        (got a 418 Error Code). Until now, I still couldn't figure out how to bypass the rate limitation on making request for the json data. I added errors & exceptions which seemed to work, 
-                        but later on gave the same result as the code without <i>try-except</i>. I tried adding <i>time.sleep(2)</i> and that didn't do anything either.
+                        one day, the 2nd loop got an error on another. Also, each time I ran the code, I will have to wait at least 30 minutes before I ran the same <i>request</i> code and I would not be able to have access to Smule page for a 
+                        similar amount of time (got a 418 Error Code). Until now, I still couldn't figure out how to bypass the rate limitation on making request for the json data. 
+                        I added errors & exceptions which seemed to work, but later on it gave me the same result as the code without <i>try-except</i>. I tried adding <i>time.sleep(2)</i> 
+                        and that didn't do anything either.
                       
                       <p>As a last resort, instead of making two requests (2 usernames, 2 URLs) in the same notebook I made only 1 request on just 1 username.
                         I exported the output to csv, waited 30 minutes to restart & rerun the code with the 2nd username, and exported that 2nd csv. Then, I appended 
@@ -163,7 +168,7 @@
                         <a><img src="asset/transform.PNG" alt="transform_table" width="85%"></a>
                       </div>
                       <p><h5 class='text-secondary'><strong>Write to CSV</strong></h5> 
-                      <p>I ran the code to import the dataframe to csv. <i>So I can show off my SQL querying skills!</i></p>
+                      <p>I ran the code to import the dataframe to csv. <i>So I do some SQL querying!</i></p>
                       <strong class='text-muted'>NICE TABLE ACQUIRED</strong>✨
                     </div>
 
@@ -182,7 +187,7 @@
                     <!-- Report -->
                     <div class="tab-pane fade" id="report">
                       <p><h5 class='text-secondary'><strong>Results</strong></h5></p>
-                        <p>Since the day I started using the app, <a class=text-primary>September, 2016</a> until the date the data was extracted <a class=text-primary>September, 2020</a>, I have sung a total of <a class="text-danger">1858</a> songs.</p>
+                        <p>Since the date I started using the app, <a class=text-primary>September, 2016</a> until the date the data was extracted <a class=text-primary>September, 2020</a>, I have made a total of <a class="text-danger">1858</a> recordings.</p>
                         
                         <div class='row'>
                           <div class='col-2'></div>
@@ -296,8 +301,8 @@
                           </div>
                         </div>
                         
-                          <p>There are <a class="text-danger">869</a> recordings I created, either a solo or a duet for others to join. I have joined others on <a class="text-danger">989</a> songs.</p>
-                          <p>Out of those 989 songs, I have sung with <a class="text-danger"> 185</a> different smule-users. I sang as many as 100s songs with 1 person and as little as 1 song.</p>
+                          <p>There are <a class="text-danger">869</a> recordings I created, either solos or duets for others to join. I have joined others on <a class="text-danger">989</a> songs.</p>
+                          <p>Out of those 989 songs, I have sung with <a class="text-danger"> 185</a> different Smule-users. I sang as many as 100s songs with 1 person and as little as 1 song.</p>
                           <p>Now, let's just look at my own singing activity for these past years:</p>
 
                         <div class='row'>
@@ -338,7 +343,7 @@
                             <p><u>Yearly</u></p>
                             <ul>
                               <li>The most singing happens in 2017.</li>
-                              <li>Though there are 106 songs in 2016, this is the amount sung within 4 months (start date is September)</li>
+                              <li>Though there are 106 songs in 2016, this is within 4 months (start date is September).</li>
                               <li>The amount of singing declines in 2018 by almost 40% compared to the year 2017. </li>                        
                               <ul><li>Probably because I started a new job as a CRA -all the travelling and being K.O. when coming back from the work trip.
                                 I remember being so wiped that I hardly had any energy to sing and spawn out invites during the weekend.
@@ -413,16 +418,16 @@
                             <p><u>Monthly</u></p>
                             <ul>
                               <li>The frequency of singing fluctuates throughout the year, with most of the singing happens in January.</li>
-                              <ul><li>This is likely because that is the coldest month in Minnesota and I  refused to leave my apartment for reasons other than work.</li></ul>
-                              <ul><li>Similar trend, though a little lower, in February as a wave of short-lived spring invited my presence out.</li></ul>                        
+                              <ul><li>This is likely because that is the coldest month in Minnesota and I  refuse to leave my apartment for reasons other than work.</li></ul>
+                              <ul><li>Similar trend, though a little lower, in February as a wave of short-lived spring invites my presence outside.</li></ul>                        
                             </ul>
                             <p>Let's look at some of the songs that I sang most frequently next.</p>
-                            <p>From looking at the resulted table, there are <strong>1071</strong> songs with unique titles. Note that some of the songs have the same name but because they have 
-                            a unique title (depends on how the song being uploaded and whether it's acoustic, piano, guitar, etc.) within the app, they are being count separately.</p>
+                            <p>From looking at the resulted table, there are <strong>1071</strong> recordings with unique titles. Note that some of the songs have the same names but because they have 
+                            unique titles (depends on how the song was being uploaded and whether it's a piano version, a guitar version, etc.) within the app, they are being count separately.</p>
                             <p><a href="https://youtu.be/wtqib5i-Z6I" target="_blank">Sarishinohara</a> is pretty easy to sing and a very popular one, I could see why I sang it so much. 
-                            <a href="https://youtu.be/6KNPNJHrv9I" target="_blank">Kokoronashi 【Short.】</a> is also popular, though the short version only. The note is pretty high! My favortie from 
-                            these list is actually just <a href="https://youtu.be/o7mGDBYNXPo" target="_blank">HEAVEN</a> 
-                            and <a href="https://youtu.be/M8KztgJ6ZYs" target="_blank">Shiwa</a>. <i>Those URLs don't lead to my recording</i>🤭</p>
+                            <a href="https://youtu.be/6KNPNJHrv9I" target="_blank">Kokoronashi</a> is also popular, though the short version only. The note is pretty high! My favortie from 
+                            these list are actually just <a href="https://youtu.be/o7mGDBYNXPo" target="_blank">HEAVEN</a> 
+                            and <a href="https://youtu.be/M8KztgJ6ZYs" target="_blank">Shiwa</a>. <i>Nah, those URLs don't lead to my recording</i>🤭</p>
                           </div>
                         </div>
                     
@@ -533,12 +538,12 @@
                         <div class='col-9'>
                           <p>What are some of the inferences we could make from this?</p>              
                             <ul>
-                              <li>I sang a lot. Though it decreased as life got busier.</li>
+                              <li>I sing a lot, but it decreases as life get busier.</li>
                               <li>We can conclude that I like singing, though you could have guessed that without looking the data.</li>
-                              <li>At least from the data, we can say I know how to sing over 1000 songs</li>
-                              <li>I became buddies with the people I frequently joined (Buddy vs Stanger)</li>
+                              <li>At least from the data, we can say I know how to sing over 1000 songs.</li>
+                              <li>I became buddies with the people I frequently join (Buddy vs Stanger).</li>
                               <li>Yes, I am quite an <i>otaku</i>, based on my top 15 most sung songs</li>
-                              <li>There is not enough data to indicate whether I am a good or bad singer😐</li>                    
+                              <li>There is not enough data to indicate whether I am a good or a bad singer😐</li>                    
                             </ul>
                           </div>    
                         </div>
