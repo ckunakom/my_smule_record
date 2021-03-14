@@ -6,3 +6,5 @@ I  initially created this just for my own curiosity. I wanted to know how many s
 The data used was from 2016-2020.
 - No raw data push for privacy reason.
 - All usernames, date and URL get censored as well.
+
+See deployed page [here](https://ckunakom.github.io/my_smule_record/).
