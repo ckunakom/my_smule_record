@@ -24,7 +24,7 @@
         <div class="col-md-12">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
-              <h2 class="pb-3 pt-3 text-primary"><strong>All the Singing in Smule🎤</strong></h2>
+              <h2 class="pb-3 pt-3 text-primary"><strong>Data Mining: Smule App Data🎤</strong></h2>
               <div class="row">
                 <div class="col">
                   
@@ -40,7 +40,7 @@
                         <a class="nav-link" data-toggle="tab" href="#db_query">Load & Query</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#report">Report</a>
+                      <a class="nav-link" data-toggle="tab" href="#report">Quick Summary Report</a>
                   </li>
                   </ul>
 
@@ -93,7 +93,7 @@
                               </div>
                             </div>
                         </div>
-                        <p><i>I want to be respectful of my singing buddies' privacy, so I will redact everything that can be traced back to them. All those years of working in clinical research and patient's confidentiality sure drilled me good with PII redaction skills</i> 😉</p>
+                        <p><i>I want to be respectful of my singing buddies' privacy, so I will redact everything that can be traced back to them. </i></p>
 
                     </div>
                     <!-- EXTRACT/Clean-up -->
@@ -115,7 +115,7 @@
                       <div class="row mb-2">
                         <div class="col-6">
                           <div class="text-center pb-2">
-                            <a><img src="asset/extract.PNG" alt="json_request" width="85%"></a>
+                            <a href='asset/extract.PNG'><img src="asset/extract.PNG" alt="json_request" width="85%"></a>
                           </div>
                         </div>
                         <div class="col">
@@ -135,7 +135,7 @@
                             </p>
                             <button type="button" class="btn btn-outline-warning"><a href="https://github.com/ckunakom/smule-song-list" target="_blank">Data Extraction Code!</a></button>
                             <p></p>
-                            <p><i>I am redacting more than just the values, getting a bit paranoid</i> 😅</p>
+                            <p><i>Redacting more than just the values, getting a bit paranoid</i> 😅</p>
                             <p></p>
                           </div>
                         </div>
@@ -156,7 +156,7 @@
                       <p><h5 class='text-secondary'><strong>Cleaning Up</strong></h5> 
                       <p>Most of the data returned is actually pretty clean, but I want the data to get spit out in a certain way. 
                         I tweaked the output of the two fields: date ("created_at") and web URL ("web_url"). 
-                      <p>Instead of having the date and timestamp (stalkable metric right there 😱), I only want a return of just the date:<br>
+                      <p>Instead of having the date and timestamp (stalkable parameter right there 😱), I only want a return of just the date:<br>
                         <ul>
                           <li>"2020-08-16T20:54:36-07:00" → "2020-08-16"</li>
                         </ul>
@@ -182,9 +182,9 @@
                     <div class="tab-pane fade" id="db_query">
                       <!-- SQL schema -->
                       <p><h5 class='text-secondary'><strong>Setting up Database</strong></h5> 
-                      <p>Again, I use postgreSQL as my database to run my SQL query. I created a database within pgAdmin before creating a table with the following code before I imported my csv:</p>
+                      <p>Again, I used postgreSQL as my database to run my SQL query. I created a database within pgAdmin before creating a table with the following code before I imported my csv:</p>
                       <a><img src="asset/load.PNG" alt="load_table" width="85%"></a>
-                      <p>Once the data has been dumped, it's time to look at some trends!</p>
+                      <p>Yes, I know I can do a pivot table in Excel spreadsheet, but how else do I show that I can write SQL query😅</p>
                       <p><h5 class='text-secondary'><strong>Query</strong></h5>
                       <p>Here are some of the simple queries I ran:</p>
                       <a><img src="asset/query.PNG" alt="query" width="600px"></a>
@@ -351,10 +351,9 @@
                             <ul>
                               <li>The most singing happens in 2017.</li>
                               <li>Though there are 106 songs in 2016, this is within 4 months (start date is September).</li>
-                              <li>The amount of singing declines in 2018 by almost 40% compared to the year 2017. </li>                        
-                              <ul><li>Probably because I started a new job as a CRA -all the travelling and being K.O. when coming back from the work trip.
-                                I remember being so wiped that I hardly had any energy to sing and spawn out invites during the weekend.
-                              </li></ul>
+                              <li>The amount of singing declines in 2018 by almost 40% compared to the year 2017. 
+                                <ul><li>What's the Reason? Career progression.</li></ul>
+                              </li>                        
                             </ul>
                           </div>
                         </div>
@@ -425,14 +424,18 @@
                             <p><u>Monthly</u></p>
                             <ul>
                               <li>The frequency of singing fluctuates throughout the year, with most of the singing happens in January.</li>
-                              <ul><li>This is likely because that is the coldest month in Minnesota and I  refuse to leave my apartment for reasons other than work.</li></ul>
-                              <ul><li>Similar trend, though a little lower, in February as a wave of short-lived spring invites my presence outside.</li></ul>                        
+                              <ul><li>Minnesota's winter is no joke!</li></ul>
+                              <li>Similar trend, though a little lower, in February as a wave of short-lived spring invites my presence outside.
+                                Then, it's less singing as it gets warmer to be outside.
+                              </li>
                             </ul>
                             <p>Let's look at some of the songs that I sang most frequently next.</p>
-                            <p>From looking at the resulted table, there are <strong>1071</strong> recordings with unique titles. Note that some of the songs have the same names but because they have 
-                            unique titles (depends on how the song was being uploaded and whether it's a piano version, a guitar version, etc.) within the app, they are being count separately.</p>
-                            <p><a href="https://youtu.be/wtqib5i-Z6I" target="_blank">サリシノハラ</a> is pretty easy to sing and a very popular one, I could see why I sang it so much. 
-                            <a href="https://youtu.be/6KNPNJHrv9I" target="_blank">心做し</a> is also popular, though the short version only. The note is pretty high! My favortie from 
+                            <p>From looking at the resulted table, there are <strong>1071</strong> recordings with unique titles. I said 'unique titles' because if the same songs have have different titles
+                             (depends on how the song was being uploaded and whether it's a piano version, a guitar version, etc.) within the app, they are being count separately.</p>
+                            
+                             <p><u>Top 15 Most Frequent Songs</u><br>
+                            <a href="https://youtu.be/wtqib5i-Z6I" target="_blank">サリシノハラ</a> is pretty easy to sing and a very popular one, so I could see why I sang it so much. 
+                            <a href="https://youtu.be/6KNPNJHrv9I" target="_blank">心做し</a> is also popular, though the short version only. The note is pretty high to casually sing it frequently. My favorite from 
                             these list are actually just <a href="https://youtu.be/o7mGDBYNXPo" target="_blank">HEAVEN</a> 
                             and <a href="https://youtu.be/M8KztgJ6ZYs" target="_blank">しわ</a>. <i>Nah, those URLs don't lead to my recording</i>🤭</p>
                           </div>
@@ -540,20 +543,21 @@
 
                       <p><h5 class='text-secondary'><strong>Insight</strong></h5>
                       <div class='row'>
-                        <div class='col-3'>
-                          <img alt="retsuko_death_metal" src="https://i.kym-cdn.com/photos/images/newsfeed/001/369/776/a33.gif" width="250" height="176">
+                        <div class='col-4'>
+                          <img alt="retsuko_death_metal" src="https://i.kym-cdn.com/photos/images/newsfeed/001/369/776/a33.gif" width="350" height="250">
                         </div>
-                        <div class='col-9'>
+                        <div class='col-8'>
                           <p>What are some of the inferences we could make from this?</p>              
                             <ul>
                               <li>I sing a lot, but it decreases as life get busier.</li>
                               <li>We can conclude that I like singing, though you could have guessed that without looking the data.</li>
                               <li>At least from the data, we can say I know how to sing over 1000 songs.</li>
                               <li>I became buddies with the people I frequently join (Buddy vs Stanger).</li>
-                              <li>Yes, I am quite an <i>otaku</i>, based on my top 15 most sung songs</li>
-                              <li>There is not enough data to indicate whether I am a good or a bad singer😐</li>                    
+                              <li>Yes, I am quite an <i>otaku</i>, based on my top 15 most frequent songs.</li>
+                              <li>The monthly data suggests that I don't do well with outdoor activities during the winter. </li>
+                              <li>There is not enough data to indicate whether I am a good or a bad singer 😐</li>                    
                             </ul>
-                          <p><strong>Want to see some real visualization? Go to the '2.0' project, <a href="https://ckunakom.github.io/smule-data-visual/">My Singing Stats</a>.</strong></p>
+                          <p><strong>Want to see some cool visualization out of this data? Go to the '2.0' project, <a href="https://ckunakom.github.io/smule-data-visual/">Data Mining: Smule App Data</a>.</strong></p>
                           </div>    
                         </div>
                     </div>
