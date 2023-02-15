@@ -37,17 +37,14 @@
                       <a class="nav-link" data-toggle="tab" href="#extract">Extract & Clean-up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#db_query">Load & Query</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-toggle="tab" href="#report">Quick Summary Report</a>
+                      <a class="nav-link" data-toggle="tab" href="#report">Summary Report</a>
                   </li>
                   </ul>
 
                   <!-- Home -->
                   <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade active show" id="home">
-                      <p><h5 class='text-secondary'><strong>Quick Background</strong></h5>
+                      <p><h5 class='text-secondary'><strong>Background</strong></h5>
                         <a href="https://www.smule.com/" target="_blank">Smule</a> is a social singing app that I use to sing 
                         with other people around the world. I am quite active in it for various reason, but I wouldn't go so far to say that I am <a href="https://www.netflix.com/title/80198505" target="_blank">Retsuko</a> in real-life. 
                         My bestie does like to think that way though 😜</p>
@@ -65,11 +62,11 @@
                               you will probably have to <i>copy + paste</i> the specific item on the page into some sort of a spreadsheet field by field and one by one.
                               You can pay an intern to do this for months. Or just let the code do it for you🤓</p>
                             <p>Yes, I am very obssessed with getting those data! What could be better than using my own singing data to demonstrate my coding skills AND my personal life interest!?</p>
-                            <h5 class='text-muted'><strong>Skills to show off</strong></h5>
+                            <h5 class='text-muted'><strong>Tools I used</strong></h5>
                             <ul>
                               <li>Python: Libraries used include json, pandas and requests</li> 
                               <li>PostgreSQL: Database of my choice</li>
-                              <li>SQL: Running queries</li>
+                              <li>SQL: Running queries to get info for summary report</li>
                               <li>Jupyter notebook: Where I ran all my python code</li>
                             </ul>
                           
@@ -77,7 +74,7 @@
                         </div>
                         <p> <h5 class='text-secondary'><strong>Goal</strong></h5>
                         <p>I just want a list of all the songs I have sung and I want to know what does my singing activity look like since I started using this app in 2016 ( •̀ ω •́ )✧
-                        <br>- <i>That's it! No elaborate hopes and dreams!</i></p>
+                        <i>That's it! No elaborate hopes and dreams! ...Though, for the purpose of this project, I wrote up the summary report to get some insight!</i></p>
                         
                         <div class="row mb-2">
                             <div class="col-4">
@@ -109,7 +106,8 @@
                       <p>From googling around, I finally got my hands on the URL where I can get the data I need in a json format. Bless those beautiful souls for sharing the URL on <a href="https://stackoverflow.com/questions/50074596/list-of-followers-and-recordings-of-smule" target="_blank"> stackoverflow</a> and
                         <a href="https://sing.salon/forums/topic/614-introducing-sing-insights-beta/" target="_blank"> Sing Salon</a>.</p>
                       <strong class='text-muted'>STARTER URL ACQUIRED</strong>✨
-                      <p class='text-success'>https://www.smule.com/s/profile/performance/&lt;username&gt;/sing?offset=&lt;#&gt;</p>  
+                      <p class='text-success'>https://www.smule.com/s/profile/performance/&lt;username&gt;/sing?offset=&lt;#&gt;</p>
+             
                       <p><h5 class='text-secondary'><strong>Parsing-out JSON Object</strong></h5> 
                       <p>Let the cherry-picking begins!</p>
                       <div class="row mb-2">
@@ -131,12 +129,10 @@
 
                             <p>I actually created a project on my GitHub that is dedicated for extracting data [and transforming too]. The code I share actually gives you 
                               the information on how many songs have the two people sung together. For
-                              the demo on this page, I am just looking up my own account information.
+                              my own purpose, I extracted only data from my account.
                             </p>
                             <button type="button" class="btn btn-outline-warning"><a href="https://github.com/ckunakom/smule-song-list" target="_blank">Data Extraction Code!</a></button>
-                            <p></p>
-                            <p><i>Redacting more than just the values, getting a bit paranoid</i> 😅</p>
-                            <p></p>
+                            
                           </div>
                         </div>
                       </div>
@@ -150,11 +146,11 @@
                       <p>As a last resort, instead of making two requests (2 usernames, 2 URLs) in the same notebook I made only 1 request on just 1 username.
                         I exported the output to csv, waited 30 minutes to restart & rerun the code with the 2nd username, and exported that 2nd csv. Then, I appended 
                         the two dataframes and reset the index (need to do this for SQL database) before exporting that final dataframe to csv to be loaded. A whole set of jupyter notebooks were created for this alternative method.
-                        <i>Yeah, I know. I AM obssessed with getting these data.</i> Imagine how many 30-min-wait time I had to do while debugging... 😭 </p>
+                        <i>Yeah, I know. I AM obssessed with getting these data.</i></p>
                       
                     <!-- Transform -->
                       <p><h5 class='text-secondary'><strong>Cleaning Up</strong></h5> 
-                      <p>Most of the data returned is actually pretty clean, but I want the data to get spit out in a certain way. 
+                      <p>Most of the data returned is actually pretty clean, but I want the data to get spat out in a certain way. 
                         I tweaked the output of the two fields: date ("created_at") and web URL ("web_url"). 
                       <p>Instead of having the date and timestamp (stalkable parameter right there 😱), I only want a return of just the date:<br>
                         <ul>
@@ -174,26 +170,14 @@
                         <a><img src="asset/transform.PNG" alt="transform_table" width="85%"></a>
                       </div>
                       <p><h5 class='text-secondary'><strong>Write to CSV</strong></h5> 
-                      <p>I ran the code to import the dataframe to csv. <i>So I do some SQL querying!</i></p>
+                      <p>I ran the code to write the dataframe to csv. Then, I did some SQL-querying to present the data and talk about it.</p>
                       <strong class='text-muted'>NICE TABLE ACQUIRED</strong>✨
-                    </div>
-
-                    <!-- Load & Query -->
-                    <div class="tab-pane fade" id="db_query">
-                      <!-- SQL schema -->
-                      <p><h5 class='text-secondary'><strong>Setting up Database</strong></h5> 
-                      <p>Again, I used postgreSQL as my database to run my SQL query. I created a database within pgAdmin before creating a table with the following code before I imported my csv:</p>
-                      <a><img src="asset/load.PNG" alt="load_table" width="85%"></a>
-                      <p>Yes, I know I can do a pivot table in Excel spreadsheet, but how else do I show that I can write SQL query😅</p>
-                      <p><h5 class='text-secondary'><strong>Query</strong></h5>
-                      <p>Here are some of the simple queries I ran:</p>
-                      <a><img src="asset/query.PNG" alt="query" width="600px"></a>
                     </div>
 
                     <!-- Report -->
                     <div class="tab-pane fade" id="report">
                       <p><h5 class='text-secondary'><strong>Results</strong></h5></p>
-                        <p>Since the date I started using the app, <span class=text-primary>September, 2016</span> until the date the data was extracted <span class=text-primary>
+                        <p>Since the date I started using the app, <span class=text-primary>September, 2016</span>, until the date the data was extracted, <span class=text-primary>
                           September, 2020</span>, I have made a total of <span class="text-danger">1858</span> recordings.</p>
                         
                         <div class='row'>
@@ -537,7 +521,7 @@
                                 </tr>
                               </tbody>
                             </table>
-                            <p class=text-right><small>Note: I edited some of the songs' title.</small></p>
+                            <p class=text-right><small>Note: I edited some of the songs' title to be more readable.</small></p>
                           </div>
                         </div>                   
 
@@ -549,15 +533,13 @@
                         <div class='col-8'>
                           <p>What are some of the inferences we could make from this?</p>              
                             <ul>
-                              <li>I sing a lot, but it decreases as life get busier.</li>
-                              <li>We can conclude that I like singing, though you could have guessed that without looking the data.</li>
+                              <li>I sing a lot.</li>
                               <li>At least from the data, we can say I know how to sing over 1000 songs.</li>
-                              <li>I became buddies with the people I frequently join (Buddy vs Stanger).</li>
+                              <li>I tend to sing with certain people more than others (Buddy vs Stanger).</li>
                               <li>Yes, I am quite an <i>otaku</i>, based on my top 15 most frequent songs.</li>
-                              <li>The monthly data suggests that I don't do well with outdoor activities during the winter. </li>
                               <li>There is not enough data to indicate whether I am a good or a bad singer 😐</li>                    
                             </ul>
-                          <p><strong>Want to see some cool visualization out of this data? Go to the '2.0' project, <a href="https://ckunakom.github.io/smule-data-visual/">Data Visualization: Smule App Data</a>.</strong></p>
+                          <p><strong>Want to see some actual dashboards out of this data? Go to the '2.0' project, <a href="https://ckunakom.github.io/smule-data-visual/">Data Visualization: Smule App Data</a>.</strong></p>
                           </div>    
                         </div>
                     </div>
